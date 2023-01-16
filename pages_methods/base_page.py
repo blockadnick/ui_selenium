@@ -11,7 +11,7 @@ id = By.ID
 
 class BasePage:
 
-    url = "https://www.siteexample.com"
+    url = "https://www.sitexample.com"
 
 
     def __init__(self, driver):
