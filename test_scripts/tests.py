@@ -1,5 +1,7 @@
 from pages_methods.base_page import *
 from pages_methods.check_out_page import CheckOut
+from pages_methods.online_page import Online
+from pages_methods.catalog_page import Catalog
 import pytest
 
 
@@ -54,4 +56,20 @@ def test_order_international_auth(base, auth, catalog, checkout, country):
     checkout.confirm_order()
     assert checkout.check_order_sucsess() == True
 
+@pytest.mark.catalog
+def test_exist_sku_in_array(base, catalog):
+    catalog.open(catalog.url)
+    base.accept_cookie()
+    result = catalog.search_and_open_many(catalog.array, "https://www.sitexample.com/product/")
+    assert result == 0, "some products not found"
 
+@pytest.mark.online
+def test_skus_for_online_without_duplicates(online): 
+    online.open(online.url)
+    online.accept_cookie()
+    section_result = online.choose_section(online.sections["recently"])
+    show_more_button = section_result["button"]
+    online.show_more_results(show_more_button)
+    array_of_SKUs = online.parse_online(section_result["items"])
+    result = online.check_duplicates(array_of_SKUs)
+    assert len(result) == 0

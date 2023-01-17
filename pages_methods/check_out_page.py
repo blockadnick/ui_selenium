@@ -108,7 +108,6 @@ class CheckOut(BasePage):
     
     '''Shecks for notification of incorrect field completion, returns 1 if notification is found''' 
     def check_field_error(self, field):
-        sleep(0.2)
         dfields = {"phone": 1, "last_name": 2, "first_name": 3, "email": 4, "address": 1, "flat": 2} 
         param = dfields[field] 
         if field == "address" or "flat":
