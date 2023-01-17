@@ -9,7 +9,7 @@ class Online(BasePage):
 
     '''Switches to the desired section, returns an item with products and a "show 20 more" button'''
     def choose_section(self, param):
-        self.presence_click((css, f".product-tabs :nth-child({param})"), 1)  # выбор раздела
+        self.presence_click((css, f".product-tabs :nth-child({param})"), 1) 
         if param == 1:
             items = self.driver.find_element(By.ID, "populyrnoe_za_2_menu-list-item-block-inner")
             show_more_button = ((id, "populyrnoe_za_2_show-more-button"))

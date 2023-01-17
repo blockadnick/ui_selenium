@@ -98,7 +98,7 @@ class CheckOut(BasePage):
     '''Checks the green marker if the field is filled in correctly, returns 1 if not found'''
     def check_field_success(self, field):
         if field == "address":
-            result = self.element_presence((css, f"input[placeholder='Введите адрес']~.input-check-icon"), 3)
+            result = self.element_presence((css, f"input[placeholder='input address']~.input-check-icon"), 3)
         else:
             result = self.element_presence((css, f"input[placeholder='{field}']~.input-check-icon"), 3)
         if result == False:

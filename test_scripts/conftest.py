@@ -28,16 +28,16 @@ def browser(opt_country, opt_branch):
     driver.quit()
 
 def pytest_addoption(parser):
-    parser.addoption("--country", default='ru', choices=('de', 'us', 'fr', 'ru'))
-    parser.addoption("--branch", default='', choices=('param1', 'param2', 'param3'))
+    parser.addoption("--country", default="ru", choices=("de", "us", "fr", "ru"))
+    parser.addoption("--branch", default="", choices=("param1", "param2", "param3"))
 
 @pytest.fixture
 def opt_country(request):
-    return request.config.getoption('--country')
+    return request.config.getoption("--country")
 
 @pytest.fixture
 def opt_branch(request):
-    return request.config.getoption('--branch')
+    return request.config.getoption("--branch")
 
 @pytest.fixture
 def base(browser):
