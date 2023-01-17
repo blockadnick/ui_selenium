@@ -73,7 +73,7 @@ class Catalog(BasePage):
     '''difference between the page of a regular product and a product with a set'''
     def search_set(self):
         table_element = self.get_element_text((css, ".menu-list-item"))
-        if table_element == "КОМПЛЕКТ":
+        if table_element == "set":
             sku_id = self.get_element_text((css, ".product-info-value"))
             print(sku_id + " : product have a set")
             return True

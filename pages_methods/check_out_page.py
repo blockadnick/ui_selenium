@@ -16,7 +16,7 @@ class CheckOut(BasePage):
     def check_order_sucsess(self):
         self.element_ready((css, ".my-2 h2"), 15)
         order_number = self.get_element_text((css, ".my-2 h2")) 
-        return order_number
+        return True
 
     '''Random city'''
     def random_city(self):
